@@ -45,8 +45,13 @@ class ViewController: UIViewController {
             displayAlert("Missing Email", message: "Please enter an email address.")
         } else if fldUsername.text == "" {
             displayAlert("Missing Username", message: "Please enter a username.")
-        } else if fldPassword.text == "" {
+        } else if fldUsername.text?.characters.count < 5 || fldUsername.text?.characters.count > 15 {
+            displayAlert("Insufficient Length", message: "Your Username must be between 5 and 15 characters long")
+        }
+          else if fldPassword.text == "" {
             displayAlert("Missing Password", message: "Please enter a password.")
+        } else if fldPassword.text?.characters.count < 5 || fldPassword.text?.characters.count > 15 {
+            displayAlert("Insufficient Length", message: "Your password must be between 5 and 15 characters long")
         } else {
             //prevents user from changing text fields/repressing button while account is created
             //also generates a spinner wheel to show user activity is taking place
